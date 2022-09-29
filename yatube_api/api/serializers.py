@@ -11,17 +11,6 @@ class PostSerializer(serializers.ModelSerializer):
         read_only=True
     )
 
-    group = serializers.SlugRelatedField(
-        slug_field='title',
-        required=False,
-        queryset=Group.objects.all()
-    )
-
-    comments = serializers.StringRelatedField(
-        many=True,
-        required=False
-    )
-
     class Meta:
         model = Post
         fields = "__all__"
